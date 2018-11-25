@@ -41,7 +41,26 @@ module.exports = function (grunt) {
                     rename: function (dst, src) {
                         return dst + '/' + src.replace('.js', '.min.js');
                     }
-                }]
+                },
+				{
+                    expand: true,
+                    cwd: 'js',
+                    src: ['app-build.js', '!*.min.js'],
+                    dest: 'js',
+                    rename: function (dst, src) {
+                        return dst + '/' + src.replace('.js', '.min.js');
+                    }
+                },
+				{
+                    expand: true,
+                    cwd: 'js',
+                    src: ['app-e2e.js', '!*.min.js'],
+                    dest: 'js',
+                    rename: function (dst, src) {
+                        return dst + '/' + src.replace('.js', '.min.js');
+                    }
+                }
+				]
             }
         },
         concat: {
