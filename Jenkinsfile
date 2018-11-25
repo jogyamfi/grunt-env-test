@@ -5,10 +5,7 @@ pipeline {
           }
     environment {
         
-		scmVars = checkout scm
-        gitBranch = sh(
-                script: "echo ${scmVars.GIT_BRANCH} | cut -d '/' -f2",
-                returnStdout: true).trim()
+		
     }
 
     stages {
