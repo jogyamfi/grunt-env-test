@@ -1,14 +1,4 @@
-class RefreshProxy {
-  
-
-  refreshAccessToken(){
-    alert('access token called');
-    window.PedigreeToolApp.setAccessToken("");
-  }
+function RefreshProxy(name) {
+    this.name = name;
+    
 }
-
-const refreshProxy = new RefreshProxy();
-
-window.refreshProxy = refreshProxy;
-
-export default refreshProxy;

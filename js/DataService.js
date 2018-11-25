@@ -1,12 +1,5 @@
-class DataService {
-
-  constructor(name) {
+function DataService(name) {
     this.name = name;
-  }
-
-  getName() {
-    return this.name;
-  }
-
+    
 }
 
