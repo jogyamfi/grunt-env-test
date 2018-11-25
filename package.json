@@ -1,0 +1,36 @@
+{
+  "name": "pedigree-editor-tool-test",
+  "version": "1.4.1",
+  "description": "Tool for creating pedigree diagrams",
+  "main": "index.jsp",
+    "PEDIGREE_SERVICE_URL":"A",
+  "PEDIGREE_TOOL_URL":"B",
+  "LOOKUP_SERVICE_URL":"C",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OxBRCInformatics/pedigree-editor-tool.git"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/OxBRCInformatics/pedigree-editor-tool/issues"
+  },
+  "homepage": "https://github.com/OxBRCInformatics/pedigree-editor-tool#readme",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "clean-css": "^4.1.3",
+    "grunt": "~1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-war": "^0.5.1",
+    "jshint-stylish": "^2.2.1"
+  }
+}
