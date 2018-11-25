@@ -3,10 +3,7 @@ pipeline {
           tools {
                   nodejs 'nodejs'
           }
-    environment {
-        
-		
-    }
+    
 
     stages {
        /* stage('Git Checkout') {
