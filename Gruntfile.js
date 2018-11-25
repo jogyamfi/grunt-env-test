@@ -210,9 +210,9 @@ module.exports = function (grunt) {
 		
 		var obj = {
 			
-			"PEDIGREE_SERVICE_URL" : pkgJson.PEDIGREE_SERVICE_URL,
-			"PEDIGREE_TOOL_URL" : pkgJson.PEDIGREE_SERVICE_URL,
-			"LOOKUP_SERVICE_URL" : pkgJson.PEDIGREE_SERVICE_URL
+			"PEDIGREE_SERVICE_URL" : process.env.PEDIGREE_SERVICE_URL,
+			"PEDIGREE_TOOL_URL" : process.env.PEDIGREE_TOOL_URL,
+			"LOOKUP_SERVICE_URL" : process.env.LOOKUP_SERVICE_URL
 		};
 		
 		console.log(obj);
