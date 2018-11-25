@@ -1,11 +1,12 @@
 class DataService {
-    constructor() {    
-        this.referralId = '';
-       
-      }
+
+  constructor(name) {
+    this.name = name;
   }
 
-  var dataService = new DataService();
-  
-  export default dataService
+  getName() {
+    return this.name;
+  }
+
+}
 
