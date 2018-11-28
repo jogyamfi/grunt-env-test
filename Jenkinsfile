@@ -13,16 +13,16 @@ pipeline {
         }*/
         stage('Build jar file') {
             steps {
-                bat "npm install -g grunt-cli"
-                bat "npm install grunt"
-                bat "npm install jshint-stylish"
-                bat "npm install grunt-contrib-concat"
-                bat "npm install grunt-contrib-cssmin"
-                bat "npm install grunt-contrib-jshint"
-                bat "npm install grunt-contrib-uglify"
-                bat "npm install grunt-contrib-watch"
-                bat "npm install grunt-war"
-                bat "npm install clean-css"
+                sh "npm install -g grunt-cli"
+                sh "npm install grunt"
+                sh "npm install jshint-stylish"
+                sh "npm install grunt-contrib-concat"
+                sh "npm install grunt-contrib-cssmin"
+                sh "npm install grunt-contrib-jshint"
+                sh "npm install grunt-contrib-uglify"
+                sh "npm install grunt-contrib-watch"
+                sh "npm install grunt-war"
+                sh "npm install clean-css"
 
             }
         }
