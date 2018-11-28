@@ -217,38 +217,49 @@ module.exports = function (grunt) {
 
         grunt.file.write('rest/version.js', "var version = 'v" + version + "';");
 
-        grunt.task.run('concat','uglify', 'cssmin');
+        grunt.task.run('updatesettings','concat','uglify', 'cssmin');
 
     });
 	
-	 grunt.registerTask('updateSettings', 'UpdateSettings in environment', function () {
+	grunt.registerTask('updatesettings', 'UpdateSettings in environment', function () {
         
-		var template = "var CONSTANT = CONSTANT || {	PEDIGREE_SERVICE_URL:'<%=PEDIGREE_SERVICE_URL%>',	PEDIGREE_TOOL_URL:'<%=PEDIGREE_TOOL_URL%>',	LOOKUP_SERVICE_URL:'<%=LOOKUP_SERVICE_URL%>'};";
-		
-		var pkgJson = require('./package.json');
-		
+        var template = "var CONSTANTS = CONSTANTS || {     PEDIGREE_SERVICE_URL:'<%=PEDIGREE_SERVICE_URL%>',    PEDIGREE_TOOL_URL:'<%=PEDIGREE_TOOL_URL%>',     LOOKUP_SERVICE_URL:'<%=LOOKUP_SERVICE_URL%>'};";
+
+		//Production environment
 		var obj = {
-			
-			"PEDIGREE_SERVICE_URL" : process.env.PEDIGREE_SERVICE_URL,
-			"PEDIGREE_TOOL_URL" : process.env.PEDIGREE_TOOL_URL,
-			"LOOKUP_SERVICE_URL" : process.env.LOOKUP_SERVICE_URL
+						
+			"PEDIGREE_SERVICE_URL" : process.env.PEDIGREE_SERVICE_URL_PROD,
+			"PEDIGREE_TOOL_URL" : process.env.PEDIGREE_TOOL_URL_PROD,
+			"LOOKUP_SERVICE_URL" : process.env.LOOKUP_SERVICE_URL_PROD
 		};
-		
-		console.log(obj);
-		
-		var data = grunt.template.process(template, {data:obj});
+                     
+        var data = grunt.template.process(template, {data:obj});
 
-		console.log('here');
-		//grunt.config.requires('pkg.version');
+        grunt.file.write('js/settings-prod.js', data);
 		
-		
-
-        //var version = grunt.config('pkg.version');
-        //grunt.log.writeln("Building version " + version);
+		//build environment
+		obj = {
+						
+			"PEDIGREE_SERVICE_URL" : process.env.PEDIGREE_SERVICE_URL_BUILD,
+			"PEDIGREE_TOOL_URL" : process.env.PEDIGREE_TOOL_URL_BUILD,
+			"LOOKUP_SERVICE_URL" : process.env.LOOKUP_SERVICE_URL_BUILD
+		};
+                     
+        data = grunt.template.process(template, {data:obj});
 
         grunt.file.write('js/settings-build.js', data);
+		
+		//end to end environment
+		obj = {
+						
+			"PEDIGREE_SERVICE_URL" : process.env.PEDIGREE_SERVICE_URL_E2E,
+			"PEDIGREE_TOOL_URL" : process.env.PEDIGREE_TOOL_URL_E2E,
+			"LOOKUP_SERVICE_URL" : process.env.LOOKUP_SERVICE_URL_E2E
+		};
+                     
+        data = grunt.template.process(template, {data:obj});
 
-        grunt.task.run('concat','uglify', 'cssmin');
+        grunt.file.write('js/settings-e2e.js', data);
 
     });
 
