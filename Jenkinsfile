@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Build and Push Docker Image'){
             steps {
-                bat "grunt updateSettings"
+                sh "grunt updateSettings"
                 
             }
         }
